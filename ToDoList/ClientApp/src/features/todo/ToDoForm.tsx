@@ -32,7 +32,7 @@ const setFocus = () => {
 }
 
 const onAdd = async () => {
-    const newItem = createDefaultItem(description);
+    const newItem = createDefaultItem(description, priority);
     const result = await createTodo(newItem);
     setItems([...items, newItem]);
     // cler description 
@@ -62,7 +62,7 @@ useEffect(() => {
         const data = await fetchTodos();
         setItems(data);
     }
-    //fetchData();
+    fetchData();
     setFocus();
 }, []);
 

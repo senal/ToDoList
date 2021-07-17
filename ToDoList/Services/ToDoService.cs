@@ -25,7 +25,8 @@ namespace ToDoList.Services
 
         public List<ToDoItem> GetAll()
         {
-            return _todoList.OrderBy(i => i.Priority).ToList();
+            var orderedList = _todoList.OrderBy(i => i.Priority).ToList();
+            return orderedList;
         }
 
         public bool Update(ToDoItem item)
