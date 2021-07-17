@@ -31,12 +31,22 @@ const setFocus = () => {
     inputDescription.current?.focus();
 }
 
+const sortByPriority = (a: IToDoItem, b: IToDoItem) => {
+    return a.priority - b.priority;
+}
+
+const getSortedList = (list: IToDoItem[]) => {
+    return list.sort(sortByPriority);
+}
+
 const onAdd = async () => {
     const newItem = createDefaultItem(description, priority);
-    const result = await createTodo(newItem);
-    setItems([...items, newItem]);
+    const itemFromDb = await createTodo(newItem);
+    const sortedList = getSortedList([...items, itemFromDb]);
+    setItems([...sortedList]);
     // cler description 
     setDescription("");
+    setPriority(3);
     setFocus();
 }
 
@@ -44,7 +54,8 @@ const onDelete = async (item: IToDoItem) => {
     const feedback = await deleteTodo(item);
     if(feedback){
         const list = items.filter(i => i.id !== item.id);
-        setItems([...list]);
+        const sortedList = getSortedList(list);
+        setItems([...sortedList]);
     }
 };
 
@@ -53,7 +64,8 @@ const onComplete = async (item: IToDoItem) => {
     const feedback = await updateTodo(item);
     if(feedback){
         const list = items.filter(i => i.id !== item.id);
-        setItems([...list, item]);
+        const sortedList = getSortedList([...list, item]);
+        setItems([...sortedList]);
     }
 };
 
@@ -64,18 +76,19 @@ useEffect(() => {
     }
     fetchData();
     setFocus();
+    
 }, []);
 
 const highPriority = () => {
-    return priority == 1 ? "btn-danger btn-circle btn-sm" : "btn btn-outline-danger btn-circle btn-sm" 
+    return priority === 1 ? "btn-danger btn-circle btn-sm" : "btn btn-outline-danger btn-circle btn-sm" 
 }
 
 const mediumPriority = () => {
-    return priority == 2 ? "btn btn-warning btn-circle btn-sm" : "btn btn-outline-warning btn-circle btn-sm" 
+    return priority === 2 ? "btn btn-warning btn-circle btn-sm" : "btn btn-outline-warning btn-circle btn-sm" 
 }
 
 const lowPriority = () => {
-    return priority == 3 ? "btn btn-success btn-circle btn-sm" : "btn btn-outline-success btn-circle btn-sm" 
+    return priority === 3 ? "btn btn-success btn-circle btn-sm" : "btn btn-outline-success btn-circle btn-sm" 
 }
 
 
