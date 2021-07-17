@@ -1,4 +1,5 @@
 import React from 'react';
+
 import IToDoItem from './IToDoItem';
 import './ToDo.css';
 
@@ -41,4 +42,4 @@ const ToDoListItem = (props: IToDoListItemProps) => {
     );
 }
 
-export default ToDoListItem;
+export default React.memo(ToDoListItem);

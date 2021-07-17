@@ -69,25 +69,32 @@ const onComplete = async (item: IToDoItem) => {
     }
 };
 
+// onload 
 useEffect(() => {
+    // prevent possible memory leaks binding data only if component is mounted
+    let isComponentMounted = true;
     const fetchData = async () => {
         const data = await fetchTodos();
-        setItems(data);
+        if(isComponentMounted){
+            setItems(data);     
+        }
     }
     fetchData();
     setFocus();
-    
+    return () => {
+        isComponentMounted = false;
+    }    
 }, []);
 
-const highPriority = () => {
+const highPriorityClassName = () => {
     return priority === 1 ? "btn-danger btn-circle btn-sm" : "btn btn-outline-danger btn-circle btn-sm" 
 }
 
-const mediumPriority = () => {
+const mediumPriorityClassName = () => {
     return priority === 2 ? "btn btn-warning btn-circle btn-sm" : "btn btn-outline-warning btn-circle btn-sm" 
 }
 
-const lowPriority = () => {
+const lowPriorityClassName = () => {
     return priority === 3 ? "btn btn-success btn-circle btn-sm" : "btn btn-outline-success btn-circle btn-sm" 
 }
 
@@ -101,9 +108,9 @@ return (<div>
         </div>
         <div className="col-1">
             <div>
-            <span ><button onClick={() => setPriority(1)} className={highPriority()}>H</button></span>
-            <span className="priority-p"><button onClick={() => setPriority(2)} className={mediumPriority()}>M</button></span>
-            <span ><button onClick={() => setPriority(3)} className={lowPriority()}>L</button></span>
+            <span ><button onClick={() => setPriority(1)} className={highPriorityClassName()}>H</button></span>
+            <span className="priority-p"><button onClick={() => setPriority(2)} className={mediumPriorityClassName()}>M</button></span>
+            <span ><button onClick={() => setPriority(3)} className={lowPriorityClassName()}>L</button></span>
             </div>
         </div>    
         <div className="col-2">
