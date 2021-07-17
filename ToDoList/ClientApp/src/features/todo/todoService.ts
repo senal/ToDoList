@@ -16,7 +16,6 @@ export const createTodo = async (item: IToDoItem): Promise<IToDoItem> => {
         }
     })
     const todos = await response.json();
-    console.log('Result of Add', todos);
     return todos;     
 }
 
@@ -29,7 +28,6 @@ export const updateTodo = async (item: IToDoItem): Promise<boolean> => {
         }
     })
     const feedback = await response.json();
-    console.log('Result of Update', feedback);
     return feedback;
 }
 
@@ -42,6 +40,5 @@ export const deleteTodo = async (item: IToDoItem): Promise<boolean> => {
         }
     })
     const feedback = await response.json();
-    console.log('Result of Delete', feedback);
     return feedback;
 }
