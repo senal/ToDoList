@@ -1,0 +1,12 @@
+.btn-circle.btn-sm {
+    width: 25px;
+    height: 25px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    font-size: 8px;
+    text-align: center;
+}
+
+.priority-p {
+    padding: 4px;
+}
