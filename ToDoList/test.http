@@ -1,0 +1,35 @@
+### Get
+GET https://localhost:5001/api/todo/
+
+
+### Create
+POST  https://localhost:5001/api/todo/
+Content-Type: application/json
+
+{
+    "id": "1212121",
+    "priority": 3,
+    "description": "create"
+}
+
+
+### Update
+PUT https://localhost:5001/api/todo/
+Content-Type: application/json
+
+{
+    "id": "1212121",
+    "description": "update"
+}
+
+### Delete
+DELETE https://localhost:5001/api/todo/
+Content-Type: application/json
+
+{
+    "id": "1212121",
+    "description": "update"
+}
+
+
+
