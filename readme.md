@@ -1,5 +1,6 @@
 
-# ToDo List
+# ToDo List [![ToDo List CI/CD](https://github.com/senal/ToDoList/actions/workflows/todo-cicd.yaml/badge.svg)](https://github.com/senal/ToDoList/actions/workflows/todo-cicd.yaml)
+
 
 
 ## Objective
