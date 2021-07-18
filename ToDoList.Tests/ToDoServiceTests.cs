@@ -6,7 +6,6 @@ namespace ToDoList.Tests
 {
     public class ToDoServiceTests 
     {
-
         ToDoService sut = new ();        
 
         [Fact]
