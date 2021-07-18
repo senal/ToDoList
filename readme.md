@@ -12,7 +12,7 @@ typically, they are **organised** in order of priority.
    - Mark an item as completed.
    - Delete an item from the list.
 
-## project strucutue
+## project structure
 
 ```C#
 ToDoList (root)
@@ -20,7 +20,7 @@ ToDoList (root)
 | |-ClientApp
 |    |-src
 |      |-features 
-|      |-todo             
+|        |-todo             
 | |-Controllers
 | |   -ToDoController.cs
 | |-Services
@@ -34,16 +34,19 @@ ToDoList (root)
 |
 ```
 ## How to
-**Note:** It's require to clone the project a local machine.
+**Note:** It's require to clone the project in local machine.
 ```git
 git clone https://github.com/senal/ToDoList.git
 ```
 
-### Run in Visual Studio:
+### Run with Visual Studio:
 - Build the project locally. Make sure no build errors. Note that this action may take several minutes as it's required to download all the dependent node modules.
 - Hit **F5** to run the project in IIS Express.
 
-### Run using Docker:
+### Run with Docker:
+
+**Note:** Assume the docker desktop installed on the local machine.
+
 - Make sure the build succeeded.
 - move into ToDoList\ToDoList folder.
 - run 
