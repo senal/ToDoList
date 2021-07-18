@@ -49,11 +49,11 @@ namespace ToDoList.Tests
         public void VerifyDelete()
         {
             // arrange
-            sut.Add(new () {Id = "1234", Priority = 1, Description = "test"  });
+            sut.Add(new () {Id = "12345", Priority = 1, Description = "test"  });
 
             // act
-            sut.Delete(new () {Id = "1234", Priority = 1, Description = "test", IsCompleted = true });
-            var item = sut.GetAll().FirstOrDefault();
+            sut.Delete(new () {Id = "12345", Priority = 1, Description = "test", IsCompleted = true });
+            var item = sut.GetAll().Where(i => i.Id =="12345").FirstOrDefault();
 
             // assert
             Assert.Null(item);
