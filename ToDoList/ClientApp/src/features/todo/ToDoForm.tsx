@@ -114,7 +114,7 @@ return (<div>
             </div>
         </div>    
         <div className="col-2">
-            <button className="btn btn-primary mb-3" onClick={() => onAdd()}>Add</button>
+            <button disabled={description.length === 0} className="btn btn-primary mb-3" onClick={() => onAdd()}>Add</button>
         </div>
     </div>
     <ToDoList items={items} onComplete={onComplete} onDelete={onDelete} />
