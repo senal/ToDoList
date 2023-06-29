@@ -20,8 +20,8 @@ namespace ToDoList.Tests
             Assert.Equal("1234", item.Id);
             Assert.Equal(1, item.Priority);
             Assert.Equal("test", item.Description);
-            Assert.Equal(false, item.IsCompleted);
-            Assert.Equal(false, item.IsDeleted);
+            Assert.False(item.IsCompleted);
+            Assert.False(item.IsDeleted);
 
         }
 
@@ -40,8 +40,8 @@ namespace ToDoList.Tests
             Assert.Equal("1234", item.Id);
             Assert.Equal(1, item.Priority);
             Assert.Equal("test", item.Description);
-            Assert.Equal(true, item.IsCompleted);
-            Assert.Equal(false, item.IsDeleted);
+            Assert.True(item.IsCompleted);
+            Assert.False(item.IsDeleted);
 
         }
 
