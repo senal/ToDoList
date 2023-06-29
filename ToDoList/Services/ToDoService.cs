@@ -17,7 +17,7 @@ namespace ToDoList.Services
 
         public bool Delete(ToDoItem item)
         {
-            var exists = _todoList.FirstOrDefault(i => i.Id == item.Id);
+            var exists = _todoList.Find(i => i.Id == item.Id);
             if(exists == null) return false;
             _todoList.Remove(exists);
             return true;
@@ -31,7 +31,7 @@ namespace ToDoList.Services
 
         public bool Update(ToDoItem item)
         {
-            var exists = _todoList.FirstOrDefault(i => i.Id == item.Id);
+            var exists = _todoList.Find(i => i.Id == item.Id);
             if(exists == null) return false;
             exists.IsCompleted = item.IsCompleted;
             return true;
